@@ -1,0 +1,13 @@
+<% if true %><%# if it is a product with dynamic variants %>
+
+  <% @product.option_types.each do |ot| %>
+    <%= ot.presentation  %>
+    <%= select("option_type", "option_value", ot.option_values.collect {|ov| [ ov.presentation, ov.id ] }) %>
+    <br>
+  <% end %>
+
+  <%= render :partial => 'cart_form' %>
+
+<% else %>
+  <%= render :partial => 'cart_form' %>
+<% end %>

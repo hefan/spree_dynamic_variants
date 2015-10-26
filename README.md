@@ -11,7 +11,10 @@ If track inventory is on, the newly created variant will have track_inventory = 
 
 Show all available options as dropdowns in product screen.
 When product is put in cart, the correct variant is created if it doesn't exist yet.
-Also works for Backend Order Creation.
+
+Adds a "dynamic variants?" checkbox to products which makes the variant creation dynamic.
+Adds a "surcharge" Field for Option Values for altering prices of the dynamic variants.
+
 
 Installation
 ------------
@@ -27,6 +30,16 @@ Bundle your dependencies and run the installation generator:
 bundle
 bundle exec rails g spree_dynamic_variants:install
 ```
+
+Setup
+-----
+Add Products, Option Types and Option Values (can have surcharges).
+Assign Option Types to Product.
+Set "dynamic variants?" on Product
+
+Go to Frontend Product Screen, assemble your Options and put it in Cart.
+In Backend Order Creation you still need to create the variant by hand.
+
 
 Testing
 -------

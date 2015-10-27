@@ -1,3 +1,7 @@
 Spree::Core::Engine.routes.draw do
-  # Add your extension routes here
+
+  resources :orders, :except => [:index, :new, :create, :destroy] do
+      post :variant_populate, :on => :collection
+  end
+
 end

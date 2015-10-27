@@ -2,18 +2,18 @@ SpreeDynamicVariants
 ====================
 
 This Gems creates variants for a Spree/Solidus Shop when needed.
-Useful for products with many options.
+Useful for products with many, many options.
 Dynamic Variant Creation is a better alternative than creating multimillion variant entries for each possible option combination.
 
-Assumes the Variant will be combined and sent after ordering.
-Therefore:
-If track inventory is on, the newly created variant will have track_inventory = false.
+Adds a "dynamic variants" checkbox to products which makes the variant creation dynamic.
 
+When checked:
 Show all available options as dropdowns in product screen.
 When product is put in cart, the correct variant is created if it doesn't exist yet.
+The newly created variant will has have the same sku of master variant with a suffix added.
 
-Adds a "dynamic variants?" checkbox to products which makes the variant creation dynamic.
-Adds a "surcharge" Field for Option Values for altering prices of the dynamic variants.
+Assumes the Variant will be combined and sent after ordering.
+Therefore: If track inventory is on, the newly created variant will have track_inventory = false.
 
 
 Installation
@@ -33,9 +33,9 @@ bundle exec rails g spree_dynamic_variants:install
 
 Setup
 -----
-Add Products, Option Types and Option Values (can have surcharges).
+Add Products, Option Types and Option Values.
 Assign Option Types to Product.
-Set "dynamic variants?" on Product
+Set "dynamic variants?" on Product to true.
 
 Go to Frontend Product Screen, assemble your Options and put it in Cart.
 In Backend Order Creation you still need to create the variant by hand.

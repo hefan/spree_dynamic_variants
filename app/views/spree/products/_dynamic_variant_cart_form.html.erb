@@ -6,7 +6,7 @@
       <% @product.option_types.each do |ot| %>
         <tr>
           <td><%= ot.presentation  %></td>
-          <td><%= select("options[#{ot.id}]", "option_value", ot.option_values.collect {|ov| [ ov.presentation, ov.id ] }) %></td>
+          <td><%= select("options", ot.id, ot.option_values.collect {|ov| [ ov.presentation, ov.id ] }) %></td>
         </tr>
       <% end %>
     </table>

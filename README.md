@@ -10,10 +10,11 @@ Adds a "dynamic variants" checkbox to products which makes the variant creation 
 When checked:
 Show all available options as dropdowns in product screen.
 When product is put in cart, the correct variant is created if it doesn't exist yet.
+Existence of a products variant is checked by options and price (if the price is altered a new variant will be created).
 
 Assumes the Variant will be combined and sent after ordering.
 Therefore: If track inventory is on, the newly created variant will have track_inventory = false.
-The newly created variant will have no sku.
+The newly created variant will have the same sku like the master variant plus a timestamp.
 
 
 Installation

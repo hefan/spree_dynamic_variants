@@ -6,7 +6,6 @@ Spree::Product.class_eval do
     v.track_inventory = false
     v.sku += "-#{(Time.now.to_f * 1000.0).to_i}"
     Spree::OptionValue.where(id: options.values).each { |ov| v.option_values << ov }
-    v.price = master.price
     return v.get_or_create
   end
 

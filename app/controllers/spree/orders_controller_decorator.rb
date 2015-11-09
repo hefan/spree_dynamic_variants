@@ -3,7 +3,8 @@ Spree::OrdersController.class_eval do
   def variant_populate
     order    = current_order(create_order_if_necessary: true)
     product = Spree::Product.find(params[:product_id])
-    variant = product.try_variant params[:options]
+    option_values = Spree::OptionValue.where(id: params[:options].values)
+    variant = product.try_variant option_values
     quantity = params[:quantity].to_i
 
     # 2,147,483,647 is crazy. See issue #2695.

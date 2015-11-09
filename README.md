@@ -14,7 +14,8 @@ dynamic variant creation:
 - The variant will have the price of the product plus the surcharges of its selected option values
 - Existence of a products variant is checked by options and price (if the price is altered a new variant will be created).
 
-Caveats:
+Caveats
+-------
 Assumes the Variant will be combined and sent after ordering (or is digital).
 Therefore: If track inventory is on, the newly created variant will have track_inventory = false.
 The newly created variant will have the same sku like the master variant plus a timestamp.

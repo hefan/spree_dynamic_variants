@@ -1,7 +1,7 @@
 Spree::OrdersController.class_eval do
 
   def variant_populate
-    order    = current_order(create_order_if_necessary: true)
+    order = current_order(create_order_if_necessary: true)
     product = Spree::Product.find(params[:product_id])
     option_values = Spree::OptionValue.where(id: params[:options].values)
     variant = product.try_variant option_values

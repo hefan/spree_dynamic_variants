@@ -19,7 +19,7 @@ describe Spree::Variant do
     end
   end
 
-  describe "#is_similar?" do
+  describe "#similar?" do
     it "variants are similar with same option values and price" do
       variant1 = create(:variant)
       variant2 = create(:variant)
@@ -28,7 +28,7 @@ describe Spree::Variant do
       variant1.add_options_and_calc_price [ov1, ov2]
       variant2.add_options_and_calc_price [ov1, ov2]
 
-      expect(variant1.is_similar? variant2).to be true
+      expect(variant1.similar? variant2).to be true
     end
 
     it "variants are not similar with other option values" do
@@ -40,7 +40,7 @@ describe Spree::Variant do
       variant1.add_options_and_calc_price [ov1, ov2]
       variant2.add_options_and_calc_price [ov1, ov3]
 
-      expect(variant1.is_similar? variant2).to be false
+      expect(variant1.similar? variant2).to be false
     end
 
     it "variants are not similar with same option values and other price" do
@@ -52,7 +52,7 @@ describe Spree::Variant do
       ov2.surcharge = 3.0
       variant2.add_options_and_calc_price [ov1, ov2]
 
-      expect(variant1.is_similar? variant2).to be false
+      expect(variant1.similar? variant2).to be false
     end
   end
 end

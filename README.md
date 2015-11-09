@@ -14,12 +14,6 @@ dynamic variant creation:
 - The variant will have the price of the product plus the surcharges of its selected option values
 - Existence of a products variant is checked by options and price (if the price is altered a new variant will be created).
 
-Caveats
--------
-Assumes the Variant will be combined and sent after ordering (or is digital).
-Therefore: If track inventory is on, the newly created variant will have track_inventory = false.
-The newly created variant will have the same sku like the master variant plus a timestamp.
-
 
 Installation
 ------------
@@ -36,6 +30,7 @@ bundle
 bundle exec rails g spree_dynamic_variants:install
 ```
 
+
 Setup
 -----
 Add Products, Option Types and Option Values.
@@ -45,6 +40,13 @@ Set "dynamic variants?" on Product to true.
 
 Go to Frontend Product Screen, assemble your Options and put it in Cart.
 In Backend Order Creation you still need to create the variant by hand.
+
+
+Caveats
+-------
+Assumes the Variant will be combined and sent after ordering (or is digital).
+Therefore: If track inventory is on, the newly created variant will have track_inventory = false.
+The newly created variant will have the same sku like the master variant plus a timestamp.
 
 
 Testing

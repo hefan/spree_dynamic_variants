@@ -35,7 +35,7 @@ Setup
 -----
 Add Products, Option Types and Option Values.
 Assign Option Types to Product.
-Assign Surcharges for Option Values if needeed.
+Assign Surcharges for Option Values if needed.
 Set "dynamic variants?" on Product to true.
 
 Go to Frontend Product Screen, assemble your Options and put it in Cart.

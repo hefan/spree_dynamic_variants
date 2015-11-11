@@ -9,8 +9,9 @@ Spree::Variant.class_eval do
   end
 
   def similar?(other)
-    (other.options_text.eql? self.options_text) &&
-      (other.price.eql? self.price)
+    return false if self.equal? other # equal is not similar
+    return ( (other.option_values.map {|ov| ov.id}).eql? (self.option_values.map {|ov| ov.id}) ) &&
+           (other.price.eql? self.price)
   end
 
 end

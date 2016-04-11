@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Spree::Variant do
   describe "#add_options_and_calc_price" do
     it "has the same price like the master variant if no options given" do
-      variant = create(:variant)
+      variant = create(:optionless_variant)
       variant.add_options_and_calc_price []
 
       expect(variant.price).to eq(variant.product.master.price)
@@ -21,8 +21,8 @@ describe Spree::Variant do
 
   describe "#similar?" do
     it "variants are similar with same option values and price" do
-      variant1 = create(:variant)
-      variant2 = create(:variant)
+      variant1 = create(:optionless_variant)
+      variant2 = create(:optionless_variant)
       ov1 = create(:option_value, :surcharge => 10.0)
       ov2 = create(:option_value, :surcharge => 5.0)
       variant1.add_options_and_calc_price [ov1, ov2]
@@ -32,8 +32,8 @@ describe Spree::Variant do
     end
 
     it "variants are not similar with other option values" do
-      variant1 = create(:variant)
-      variant2 = create(:variant)
+      variant1 = create(:optionless_variant)
+      variant2 = create(:optionless_variant)
       ov1 = create(:option_value, :surcharge => 10.0)
       ov2 = create(:option_value, :surcharge => 5.0)
       ov3 = create(:option_value, :surcharge => 20.0)
@@ -44,8 +44,8 @@ describe Spree::Variant do
     end
 
     it "variants are not similar with same option values and other price" do
-      variant1 = create(:variant)
-      variant2 = create(:variant)
+      variant1 = create(:optionless_variant)
+      variant2 = create(:optionless_variant)
       ov1 = create(:option_value, :surcharge => 10.0)
       ov2 = create(:option_value, :surcharge => 5.0)
       variant1.add_options_and_calc_price [ov1, ov2]

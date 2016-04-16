@@ -20,7 +20,7 @@ Installation
 Add spree_dynamic_variants to your Gemfile:
 
 ```ruby
-gem 'spree_dynamic_variants', github: 'hefan/spree_dynamic_variants', branch: 'master'
+gem 'spree_dynamic_variants', github: 'hefan/spree_dynamic_variants', branch: '3-1-stable'
 ```
 
 Bundle your dependencies and run the installation generator:

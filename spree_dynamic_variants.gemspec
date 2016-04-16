@@ -2,7 +2,7 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_dynamic_variants'
-  s.version     = '3.0.0'
+  s.version     = '3.1.0'
   s.summary     = 'create variants when needed'
   s.description = 'show all options as dropdowns in product screen, create needed variant on the fly'
   s.required_ruby_version = '>= 1.9.3'

@@ -3,14 +3,14 @@ require 'spec_helper'
 describe Spree::Variant do
   describe "#add_options_and_calc_price" do
     it "has the same price like the master variant if no options given" do
-      variant = create(:optionless_variant)
+      variant = create(:base_variant)
       variant.add_options_and_calc_price []
 
       expect(variant.price).to eq(variant.product.master.price)
     end
 
     it "has the correct surcharged price" do
-      variant = create(:variant)
+      variant = create(:base_variant)
       ov1 = create(:option_value, :surcharge => 10.0)
       ov2 = create(:option_value, :surcharge => -5.0)
       variant.add_options_and_calc_price [ov1, ov2]
@@ -21,8 +21,10 @@ describe Spree::Variant do
 
   describe "#similar?" do
     it "variants are similar with same option values and price" do
-      variant1 = create(:optionless_variant)
-      variant2 = create(:optionless_variant)
+      variant1 = create(:base_variant)
+      variant2 = create(:base_variant)
+      variant1.option_values.clear
+      variant2.option_values.clear
       ov1 = create(:option_value, :surcharge => 10.0)
       ov2 = create(:option_value, :surcharge => 5.0)
       variant1.add_options_and_calc_price [ov1, ov2]
@@ -32,8 +34,10 @@ describe Spree::Variant do
     end
 
     it "variants are not similar with other option values" do
-      variant1 = create(:optionless_variant)
-      variant2 = create(:optionless_variant)
+      variant1 = create(:base_variant)
+      variant2 = create(:base_variant)
+      variant1.option_values.clear
+      variant2.option_values.clear
       ov1 = create(:option_value, :surcharge => 10.0)
       ov2 = create(:option_value, :surcharge => 5.0)
       ov3 = create(:option_value, :surcharge => 20.0)
@@ -44,8 +48,10 @@ describe Spree::Variant do
     end
 
     it "variants are not similar with same option values and other price" do
-      variant1 = create(:optionless_variant)
-      variant2 = create(:optionless_variant)
+      variant1 = create(:base_variant)
+      variant2 = create(:base_variant)
+      variant1.option_values.clear
+      variant2.option_values.clear
       ov1 = create(:option_value, :surcharge => 10.0)
       ov2 = create(:option_value, :surcharge => 5.0)
       variant1.add_options_and_calc_price [ov1, ov2]

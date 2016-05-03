@@ -10,5 +10,5 @@ Deface::Override.new(
   insert_before: '[data-hook="option_value"] td:last-child',
   text:
     '<td class="surcharge">
-       <%= f.text_field :surcharge, :value => number_to_currency(f.object.surcharge, :unit => "") %>
+       <%= f.text_field :surcharge, :value => number_to_currency(f.object.surcharge, :unit => ""), :class => "form-control %>
      </td>')

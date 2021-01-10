@@ -1,7 +1,7 @@
 SpreeDynamicVariants
 ====================
 
-This Gems creates variants for a Spree/Solidus Shop when needed.
+This Gems creates variants for a Spree Shop when needed.
 Useful for products with many, many options.
 Dynamic Variant Creation is a better alternative than creating multimillion variant entries for each possible option combination.
 
@@ -14,6 +14,7 @@ dynamic variant creation:
 - The variant will have the price of the product plus the surcharges of its selected option values
 - Existence of a products variant is checked by options and price (if the price is altered a new variant will be created).
 
+IMPORTANT: The frontend functionality (create new variant when put something in cart) for the gem does only work up to spree 3.6.x yet.
 
 Installation
 ------------
